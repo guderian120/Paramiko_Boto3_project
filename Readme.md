@@ -7,8 +7,8 @@ This project automates the process of launching an EC2 instance on AWS, setting 
 
 ### 📝 Table of Contents
 
-* [Requirements](#requirements)
-* [Getting Started](#getting-started)
+* [Requirements](#-requirements)
+* [Getting Started](#-getting-started)
 * [Importing SSH Key to AWS CLI](#importing-ssh-key-to-aws-cli)
 * [AWS Authentication with Boto3](#aws-authentication-with-boto3)
 * [Using the EC2 Instance Script](#using-the-ec2-instance-script)
