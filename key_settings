@@ -1,0 +1,12 @@
+aws ec2 import-key-pair \
+  --key-name my-presentation-key \
+  --public-key-material fileb://my-ec2-key.pub
+
+
+#This uploads your public key to aws to use for your insance creation
+
+{
+    "KeyFingerprint": "7f:b7:38:9d:ca:21:ab:b1:6a:3d:b7:1c:0e:3c:a0:f6",
+    "KeyName": "my-presentation-key",
+    "KeyPairId": "key-0e2c5ab317c974720"
+}
