@@ -1,0 +1,12 @@
+aws ec2 import-key-pair \
+  --key-name my-presentation-key \
+  --public-key-material fileb://my-ec2-key.pub
+
+
+#The above cli command uploads your public key to aws to use for your instance creation
+
+{
+    "KeyFingerprint": "7some randome char",
+    "KeyName": "my-presentation-key",
+    "KeyPairId": "your key id"
+}
