@@ -31,13 +31,13 @@ class EC2Launcher:
 
 
 
-        #--------------------------------------Creating Instance with this method-----------------------------------------------------------
-
+     #--------------------------------------Creating Instance with this method-----------------------------------------------------------
 
 
     def create_instance(self):
          # a boto3 method to create new ec2 instances
-        print("Launching EC2 instance...")
+        self.print_to_log("Launching EC2 instance...")
+
         instance = self.ec2.create_instances(  
             ImageId=self.ami_id,
             MinCount=1,
@@ -48,10 +48,10 @@ class EC2Launcher:
         )[0]
 
         instance.wait_until_running() # This script waits until the instance is running before proceeding
-        instance.reload()
+        instance.reload() #makes another api call to get the latest information about the instance
 
-        print(f"Instance launched with ID: {instance.id}")
-        print(f"Public IP: {instance.public_ip_address}")
+        self.print_to_log(f"Instance launched with ID: {instance.id}")
+        self.print_to_log(f"Public IP: {instance.public_ip_address}")
 
         return instance.public_ip_address   #return the ip address of the instance
     
@@ -60,6 +60,12 @@ class EC2Launcher:
     
 
     #--------------------------------------Creating Instance with this method-----------------------------------------------------------
+
+
+    def print_to_log(self, message):
+        print(message)
+        with open("instance_creation.log", "a") as log_file:
+            log_file.write(message + "\n")
 
 
 if __name__ == "__main__":

@@ -3,3 +3,6 @@ keys
 venv
 __pycache__/
 venv/*
+instance_creation*
+instance_creation.log
+email_server.py
