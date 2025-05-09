@@ -1,7 +1,7 @@
 import paramiko
 import time
 import logging, os
-from email_server import send_email_to_admin
+# from email_server import send_email_to_admin
 logging.getLogger("botocore").setLevel(logging.WARNING)
 logging.getLogger("boto3").setLevel(logging.WARNING)
 logging.getLogger().setLevel(logging.WARNING)
@@ -67,8 +67,8 @@ class WebServerSetup:
 
         self.print_to_log("Sending Log files to admin.")
         self.print_to_log(f"✅ Web server installed and index.html updated. http://{ip_address}/")
-        self.print_to_log(f"sending log file to {admin_email}")
-        send_email_to_admin(log_file_path=log_path, to_email=admin_email)
+        # self.print_to_log(f"sending log file to {admin_email}")
+        # send_email_to_admin(log_file_path=log_path, to_email=admin_email)
         self.ssh.close()
 
 
