@@ -151,7 +151,7 @@ Once the EC2 instance is created, this script connects to the instance using **p
    * Run the script to connect to the EC2 instance and update the web server:
 
      ```bash
-     python update_webserver.py <IP_ADDRESS> "<CUSTOM_MESSAGE>"
+     python web_server_conf.py <IP_ADDRESS> "<CUSTOM_MESSAGE>"
      ```
 
      Example:
