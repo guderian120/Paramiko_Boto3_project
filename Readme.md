@@ -13,7 +13,7 @@ This project automates the process of launching an EC2 instance on AWS, setting 
 * [AWS Authentication with Boto3](#-aws-authentication-with-boto3)
 * [Using the EC2 Instance Script](#-using-the-ec2-instance-script)
 * [Using the Web Server Update Script](#-using-the-web-server-update-script)
-* [Troubleshooting](#-requirements1)
+* [Troubleshooting](#-troubleshooting)
 
 ---
 
@@ -168,9 +168,8 @@ Once the EC2 instance is created, this script connects to the instance using **p
 ---
 
 
-## 📋 Requirements1
+## 📋 Troubleshooting
 
-## ⚠️ Troubleshooting Issues
 
 * **SSH connection issues**:
 
