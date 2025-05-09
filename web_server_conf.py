@@ -2,7 +2,9 @@ import paramiko
 import time
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.getLogger("botocore").setLevel(logging.WARNING)
+logging.getLogger("boto3").setLevel(logging.WARNING)
+logging.getLogger().setLevel(logging.WARNING)
 
 
 class WebServerSetup:
@@ -12,13 +14,13 @@ class WebServerSetup:
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #handle unknown host keys automatically
 
     def provision(self, ip_address, custom_message):    # method to provision the webserver
-        logging.debug(f"Connecting to instance at {ip_address}...")
+        print(f"Connecting to instance at {ip_address}...")
         key = paramiko.RSAKey.from_private_key_file(self.key_file_path)
 
         for attempt in range(10): #loop for a a maximim of 10 * 10 seconds if connection fails
             try:
                 self.ssh.connect(hostname=ip_address, username='ec2-user', pkey=key) # attempt to connect
-                logging.info("SSH connection established.")
+                print("SSH connection established.")
                 break
             except Exception as e:
                 logging.error(f"SSH not ready, retrying in 10s... ({attempt+1}/10)")
@@ -35,11 +37,11 @@ class WebServerSetup:
         ]
 
         for cmd in commands:
-            logging.debug(f"Running: {cmd}")
+            print(f"Running: {cmd}")
             stdin, stdout, stderr = self.ssh.exec_command(cmd)
             stdout.channel.recv_exit_status()
 
-        logging.info("✅ Web server installed and index.html updated.")
+        print("✅ Web server installed and index.html updated.")
         self.ssh.close()
 
 
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 3:
-        logging.info("Usage: python script.py <IP_ADDRESS> <CUSTOM_MESSAGE>")
+        print("Usage: python script.py <IP_ADDRESS> <CUSTOM_MESSAGE>")
         sys.exit(1)
 
     ip = sys.argv[1]

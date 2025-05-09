@@ -167,6 +167,7 @@ Once the EC2 instance is created, this script connects to the instance using **p
 
 ---
 
+##  Troubleshooting
 ## ⚠️ Troubleshooting
 
 * **SSH connection issues**:
